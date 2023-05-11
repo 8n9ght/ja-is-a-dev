@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="form.css" />
+    <title>Get in touch</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="topHeader">
+        <article class="time">
+          <p class="hours"></p>
+        </article>
+
+        <article class="phoneInfos">
+          <img src="./images/mobileData.png" class="mobileData" />
+          <img src="./images/wifi.png" class="wifi" />
+          <article class="batteryInfos">
+            <p class="battery"></p>
+            <article class="isCharging"></article>
+          </article>
+        </article>
+      </div>
+
+      <div class="pageNav">
+        <img src="images/locker.png" class="lock"/>
+        <p>https://jean-arthur.thoni.is-a.dev</p>
+        <img src="images/refresh.png" class="refreshPage" />
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <h1>Hey ! Let's get in touch !</h1>
+
+      <form>
+        <label for="name">My name</label>
+        <input type="text" id="name" />
+
+        <label for="phone">My number</label>
+        <input type="tel" id="phone" />
+
+        <label for="email">My email</label>
+        <input type="email" name="email" id="email" />
+
+        <input type="submit" value="Let's do this !" class="submit" />
+      </form>
+    </div>
+  </body>
+  <script>
+    const displayTime = () => {
+      const date = new Date();
+      const hours = date.toLocaleTimeString([], { timeStyle: "short" });
+      document.querySelector(".hours").innerHTML = hours;
+    };
+
+    navigator.getBattery().then((battery) => {
+      function updateAllBatteryInfo() {
+        updateChargeInfo();
+        updateLevelInfo();
+      }
+      updateAllBatteryInfo();
+
+      battery.addEventListener("chargingchange", () => {
+        updateChargeInfo();
+      });
+      function updateChargeInfo() {
+        document.querySelector(".isCharging").innerHTML = battery.charging
+          ? '<img src="./images/charging.png" class="chargingState">'
+          : null;
+          document.querySelector(".batteryInfos").style.backgroundColor = battery.charging ? 'hsl(49, 94%, 67%)' : 'hsl(160, 96%, 60%)';
+      }
+
+      battery.addEventListener("levelchange", () => {
+        updateLevelInfo();
+      });
+      function updateLevelInfo() {
+        document.querySelector(".battery").innerHTML =
+          Math.trunc(battery.level * 100) + "%";
+      }
+    });
+
+    setInterval(displayTime, 1000);
+  </script>
+</html>

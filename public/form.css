@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'galhau';
+    src: url('../fonts/Galhau_Regular.ttf');
+  }
+
+ *{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'galhau';
+}
+
+html{
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    overflow-y: hidden;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.wrapper{
+    padding: 1rem 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 3rem;
+    background: #362145;
+    border-radius: 1rem 1rem 0 0;
+}
+
+h1{
+    color: #AD43F3;
+    font-size: 2.5rem;
+    padding: 0 1rem;
+    text-align: center;
+    margin: 2rem 0 0;
+}
+
+.header{
+    width: 100%;
+}
+
+.topHeader{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 .8rem;
+    align-items: center;
+    height: 2.5rem;
+}
+
+.phoneInfos{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: auto;
+}
+
+.hours, .battery{
+    font-size: 1.2rem;
+}
+
+.mobileData, .wifi, .chargingState{
+    height: 1.1rem;
+}
+
+.batteryInfos{
+    display: flex;
+    padding: 0.15rem 0.25rem;
+    border-radius: 0.25rem;
+}
+
+.pageNav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.2rem 0.3rem;
+}
+
+.refreshPage, .lock{
+    height: 1rem;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+    gap: 0.5rem;
+    height: 50%;
+}
+
+label{
+    color: #fff;
+    align-self: flex-start;
+    font-size: 1.5rem;
+}
+
+input{
+    border: none;
+    border-radius: .1rem;
+    height: 4rem;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.submit{
+    margin-top: 3rem;
+    margin-bottom: auto;
+    height: 5rem;
+}

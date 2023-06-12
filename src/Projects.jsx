@@ -24,21 +24,10 @@ export default function Project(props) {
       });
   }, []);
 
-  function scrollNext(id){
-    document.getElementById(id).scrollIntoView({
-      block: 'nearest', 
-      behavior: 'smooth',
-      inline: 'start'
-    })
+  function scroll(offset){
+    const container = document.querySelector('.projectsContent');
+    container.scrollLeft += 1200 * offset;
     setActiveRobot(true)
-  }
-  
-  const scrollPrevious = (id) => {
-    document.getElementById(id).scrollIntoView({
-      block: 'nearest', 
-      behavior: 'smooth',
-      inline: 'center'
-    })
   }
 
   return (
@@ -46,23 +35,18 @@ export default function Project(props) {
       <h2>Some projects I've built</h2>
       <div className="projectsContent">
         {project.slice(0, 5).map((projectItem, pIndex) => {
+          const projectDataItem = dataProject.find(item => item.projectId === projectItem.id);
           return (
             <div id={pIndex} key={projectItem.id} className="project" ref={activeProject}>
-              {dataProject.map((projectDataItem) => {
-                if (projectDataItem.projectId === projectItem.id) {
-                  return (
-                    <article
-                      key={projectDataItem.projectId}
-                      className="projectDisplay"
-                    >
-                      <img
-                        alt={projectDataItem.projectName}
-                        src={projectDataItem.img}
-                      ></img>
-                    </article>
-                  );
-                }
-              })}
+              {projectDataItem ? (
+                <article key={projectDataItem.projectId} className="projectDisplay">
+                  {projectDataItem.img ? (<img alt={projectDataItem.projectName} src={projectDataItem.img} ></img>) : (<p>test</p>)}
+                </article>
+              ) : (
+                <article className="projectDisplay noImg">
+                  <p>Oops ! Looks like I'm picture free !</p>
+                </article>
+              )}
 
               <article className="projectContent">
                 <h3>{projectItem.name}</h3>
@@ -111,16 +95,16 @@ export default function Project(props) {
                 </article>
                 {pIndex !== 0 && pIndex !== 4 && 
                 <article className="projectBtns">
-                    <button className="btnItem left" onClick={() => scrollPrevious(pIndex - 1)}></button>
-                    <button className="btnItem right" onClick={() => scrollNext(pIndex + 1)}></button>
+                    <button className="btnItem left" onClick={() => scroll(- 1)}></button>
+                    <button className="btnItem right" onClick={() => scroll(1)}></button>
                 </article>}
                 {pIndex === 0 && 
                 <article className="projectBtns">
-                    <button onClick={() => scrollNext(pIndex + 1)} className="btnItem right"></button>
+                    <button onClick={() => scroll(pIndex + 1)} className="btnItem right"></button>
                 </article>}
                 {pIndex === 4 && 
                 <article className="projectBtns">
-                    <button className="btnItem left" onClick={() => scrollPrevious(pIndex - 1)}></button>
+                    <button className="btnItem left" onClick={() => scroll(- 1)}></button>
                 </article>}
               </article>
 

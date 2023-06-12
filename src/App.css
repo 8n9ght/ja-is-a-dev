@@ -147,7 +147,7 @@ p{
 
 .skillsContent{
   height: 25rem;
-  overflow-y: scroll;
+  overflow-y: hidden;
   position: relative;
   overscroll-behavior: contain;
   width: 90%;
@@ -173,7 +173,7 @@ p{
   position: absolute;
   left: 0;
   top: 30%;
-  gap: 10rem;
+  gap: 6rem;
 }
 
 .skill p{
@@ -232,6 +232,7 @@ p{
   width: 80%;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 
 .projectsContent::-webkit-scrollbar{
@@ -254,6 +255,13 @@ p{
   overflow: hidden;
   filter: grayscale(1);
   transition: all ease-in-out 200ms;
+}
+
+.noImg{
+  display: flex;
+  justify-content: center;
+  background: #AD43F3;
+  padding: 2rem 0 0 0;
 }
 
 .projectContent{

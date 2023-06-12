@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="form.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
+    <title>Get in touch</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="topHeader">
+        <article class="time">
+          <p class="hours"></p>
+        </article>
+
+        <article class="phoneInfos">
+          <img src="./images/mobileData.png" class="mobileData" />
+          <img src="./images/wifi.png" class="wifi" />
+          <article class="batteryInfos">
+            <p class="battery"></p>
+            <article class="isCharging"></article>
+          </article>
+        </article>
+      </div>
+
+      <div class="pageNav">
+        <img src="images/locker.png" class="lock"/>
+        <p>https://jean-arthur.thoni.is-a.dev</p>
+        <img src="images/refresh.png" class="refreshPage" />
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <h1>Hey ! Let's get in touch !</h1>
+
+      <form id="contactForm">
+        <label for="name">My name</label>
+        <input type="text" id="name" maxlength="64"/>
+
+        <label for="phone">My number</label>
+        <input type="tel" id="phone" maxlength="15"/>
+
+        <label for="email">My email</label>
+        <input type="email" name="email" id="email" maxlength="254"/>
+
+        <input type="submit" value="Let's do this !" class="submit" />
+      </form>
+    </div>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+  
+  <script>
+    const phone = document.querySelector("#phone");
+    const email = document.querySelector("#email");
+    const fname = document.querySelector("#name");
+ 
+    const emailCheck = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    
+    const iti = window.intlTelInput(phone, {
+      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js",
+      initialCountry: "auto",
+      geoIpLookup: function(callback) {
+        fetch("https://ipapi.co/json")
+        .then(function(res) { return res.json(); })
+        .then(function(data) { callback(data.country_code); })
+        .catch(function() { callback("fr"); });
+      },
+    });
+
+    (function(){
+      emailjs.init("56478RYmZtLdWxbKL");
+   })();
+
+
+    email.addEventListener('input', () => {
+      const emailValue = email.value;
+      if (emailCheck.test(emailValue)) {
+        email.style.border = "2px solid green";
+      } else {
+        email.style.border = "2px solid red";
+      }
+    })
+    
+
+    fname.addEventListener('input', () => {
+      const nameValue = fname.value;
+    })
+    
+    phone.addEventListener('input', () => {
+      console.log(iti.isValidNumber(phone))
+    })
+
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+          e.preventDefault();
+          const mailContent = {
+            from_name: fname.value,
+            from_email: email.value,
+            phone: iti.getNumber(),
+            to_email: '8n9ght@gmail.com',
+          };
+
+          if (fname.value === '' || email.value === '' || phone.value === '') {
+            alert('Please fill in all fields');
+          } else if (iti.isValidNumber(phone) === false) {
+            alert('phone number is not valid');
+          } else if(!emailCheck.test(email.value)) {
+            alert('Email adress is not valid')
+          } else {
+            alert('Your message has been sent !');
+             emailjs.send("service_s7cm9re", "template_k3m66dv", mailContent).then(
+              function (response) {
+                console.log("SUCCESS!", response.status, response.text);
+              },
+              function (error) {
+                console.log("FAILED...", error);
+              }
+            );
+          }
+
+    });
+
+    /* Fancy functions */
+    
+    const displayTime = () => {
+      const date = new Date();
+      const hours = date.toLocaleTimeString([], { timeStyle: "short" });
+      document.querySelector(".hours").innerHTML = hours;
+    };
+
+    navigator.getBattery().then((battery) => {
+      function updateAllBatteryInfo() {
+        updateChargeInfo();
+        updateLevelInfo();
+      }
+      updateAllBatteryInfo();
+
+      battery.addEventListener("chargingchange", () => {
+        updateChargeInfo();
+      });
+      function updateChargeInfo() {
+        document.querySelector(".isCharging").innerHTML = battery.charging
+          ? '<img src="./images/charging.png" class="chargingState">'
+          : null;
+          document.querySelector(".batteryInfos").style.backgroundColor = battery.charging ? 'hsl(49, 94%, 67%)' : 'hsl(160, 96%, 60%)';
+      }
+
+      battery.addEventListener("levelchange", () => {
+        updateLevelInfo();
+      });
+      function updateLevelInfo() {
+        document.querySelector(".battery").innerHTML =
+          Math.trunc(battery.level * 100) + "%";
+      }
+    });
+
+    setInterval(displayTime, 1000);
+  </script>
+</html>

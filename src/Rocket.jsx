@@ -6,6 +6,7 @@ import * as THREE from "three"
 export default function Rocket() {
 
   const rocketRef = useRef();
+  const targetRef = useRef(new THREE.Object3D());
   const rocket = useGLTF("/assets/rocket.glb");
   const animations = useAnimations(rocket.animations, rocket.scene)
 
@@ -13,26 +14,35 @@ export default function Rocket() {
 
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime();
-
+  
+    const currentPos = new THREE.Vector3(
+      radius * Math.cos(t),
+      radius * Math.sin(t),
+      radius * Math.cos(t)
+    );
+  
     const nextPos = new THREE.Vector3(
       radius * Math.cos(t + 0.01),
       radius * Math.sin(t + 0.01),
       radius * Math.cos(t + 0.01)
-      );
-
-    const dir = rocketRef.current.position.clone().sub(nextPos).normalize();
-
-    // Calculate the up vector
-    const up = new THREE.Vector3(0, 1, 0);
-    
-    // Set the rocket's orientation based on direction and up vectors
-    rocketRef.current.quaternion.setFromUnitVectors(dir, up);
-    
-    rocketRef.current.position.z = radius * Math.cos(t);
-    rocketRef.current.position.y = radius * Math.sin(t);
-    rocketRef.current.position.x = radius * Math.cos(t);
-    
-    rocketRef.current.rotation.x = Math.sin(t / 2) * Math.PI * 0.2;
+    );
+  
+    if (rocketRef.current && targetRef.current) {
+      rocketRef.current.position.copy(currentPos);
+      targetRef.current.position.copy(nextPos);
+  
+      const dir = nextPos.clone().sub(currentPos).normalize();
+  
+      const up = new THREE.Vector3(0, 1, 0);
+  
+      rocketRef.current.quaternion.setFromUnitVectors(up, dir);
+  
+      const deltaY = nextPos.y - currentPos.y;
+  
+      const tiltAngle = Math.atan2(deltaY, radius);
+  
+      rocketRef.current.rotation.z += tiltAngle;
+    }
   });
 
   useEffect(() => {

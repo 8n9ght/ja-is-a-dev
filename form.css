@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'galhau';
-    src: url('../fonts/Galhau_Regular.ttf');
+    src: url('./fonts/Galhau_Regular.ttf');
   }
 
  *{

@@ -11,7 +11,7 @@ The purpose was to renew the way we give life to website content. It's a constan
 - 🖼 My latest web projects (and more soon)
 - 💌 A quick way to get in touch if you want work with me on something great !
 
-### What I hope to deliver with this project (futur features) 🚀
+## What I hope to deliver with this project (futur features) 🚀
 
 - 🛸 A unique immersive experience
 - 🕹 More unique assets

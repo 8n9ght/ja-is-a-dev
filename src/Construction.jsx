@@ -102,7 +102,7 @@ const Construction = () => {
                     <pointLight position={[0, -5, 0]} intensity={20} color='#999eff'  />
                     <EffectComposer>
                         <Bloom />
-                        <Physics>
+                        <Physics>f
                             <Walls />
                             <InteractiveSphere position={[0, 0, 0]} />
                             <InteractiveSphere position={[0, 0, 0]} />

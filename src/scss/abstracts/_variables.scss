@@ -1,0 +1,12 @@
+@mixin rotatedText{
+    transform: rotate(-90deg);
+    position: absolute;
+}
+
+@mixin glassEffect{
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(.2rem);
+    -webkit-backdrop-filter: blur(.2rem);
+}

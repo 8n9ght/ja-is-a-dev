@@ -1,0 +1,52 @@
+{
+  "menuItems": [
+    {
+      "id": 1,
+      "src": "./images/code-icon.png",
+      "title": "Code",
+      "url": "/code"
+    },
+    {
+      "id": 2,
+      "src": "./images/design-icon.png",
+      "title": "Design",
+      "url": "/design"
+    },
+    {
+      "id": 3,
+      "src": "./images/3d-icon.png",
+      "title": "3D",
+      "url": "/3d"
+    },
+    {
+      "id": 4,
+      "src": "./images/lenses-icon.png",
+      "title": "Lenses",
+      "url": "/lenses"
+    },
+    {
+      "id": 5,
+      "src": "./images/marketing-icon.png",
+      "title": "Marketing",
+      "url": "/marketing"
+    },
+    {
+      "id": 6,
+      "src": "./images/about-icon.png",
+      "title": "About me",
+      "url": "/about"
+    },
+    {
+      "id": 7,
+      "src": "./images/contact-icon.png",
+      "title": "Get in touch",
+      "url": "/contact"
+    },
+    {
+      "id": 8,
+      "src": "./images/home-icon.png",
+      "title": "Home",
+      "url": "/"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="carousel.css">
+    <title>Carousel</title>
+</head>
+<body>
+    <div class="carousel">
+        <div class="slide">
+            <img src="./pictures/1.jpg" class="slide__img" />
+            <article class="slide__content hidden">
+                <h4>Une photo comme ça</h4>
+                <p>Photo lors de fiançailles de proches</p>
+            </article>
+        </div>
+        <div class="slide">
+            <img src="./pictures/2.jpg" class="slide__img" />
+            <article class="slide__content hidden">
+                <h4>Une autre photo comme ça</h4>
+                <p>Photo lors de fiançailles de proches 2</p>
+            </article>
+        </div>
+        <div class="slide">
+            <img src="./pictures/3.jpg" class="slide__img" />
+            <article class="slide__content hidden">
+                <h4>Euh c'est différent ?</h4>
+                <p>Photo lors de fiançailles de proches 3</p>
+            </article>
+        </div>
+        
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const currentSlideInfo = slides[currentIndex].querySelector('.slide__content');
+
+        const showSlide = (index) => {
+            const totalSlides = slides.length;
+            index = (index + totalSlides) % totalSlides;
+            const offset = -index * 100;
+            slides.forEach(slide => slide.style.transform = `translateX(${offset}%)`);
+            currentIndex = index;
+        };
+
+        let lastMessageTime = 0;
+
+        window.addEventListener('message', (event) => {
+            if (event.data === 'next') {
+                showSlide(currentIndex - 1);
+            } else if (event.data === 'previous') {
+                showSlide(currentIndex + 1);
+            } else if (event.data === 'display') {
+                const currentSlideInfo = slides[currentIndex].querySelector('.slide__content');
+                currentSlideInfo.classList.toggle('hidden');
+            }
+        });
+
+    </script>
+</body>
+</html>

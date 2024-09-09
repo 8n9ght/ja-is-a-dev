@@ -1,0 +1,45 @@
+.camera{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    position: relative;
+    padding: 0 5rem;
+    &__canvas{
+        width: 100% !important;
+        position: absolute;
+        left: 0;
+        &__iframe{
+            width: 209px;
+            height: 210px;
+            border: none;
+        }
+        &__content{
+            &--text{
+                position: absolute;
+                top: -15rem;
+                min-width: 10rem;
+                font-size: 1.5rem;
+                animation: grow 2s linear infinite;
+            }
+        }
+    }
+    &__text{
+        width: 50%;
+        &--item{
+            font-size: 1.5rem;
+            line-height: 1.8rem;
+        }
+    }
+}
+
+@keyframes grow {
+    0%{
+        transform: scale(1);
+    } 50% {
+        transform: scale(1.1);
+    } 100%{
+        transform: scale(1);
+    }
+}

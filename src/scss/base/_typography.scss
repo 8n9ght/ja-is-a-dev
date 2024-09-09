@@ -1,0 +1,19 @@
+@font-face {
+    font-family: galhau;
+    src: url('./fonts/Galhau_Regular.ttf');
+}
+
+@font-face {
+    font-family: galhau_bold;
+    src: url('./fonts/Galhau_Heavy.ttf');
+}
+
+h1, h2, h3, h4{
+    font-family: 'galhau_bold';
+    color: #fff;
+}
+
+p, a{
+    font-family: 'galhau';
+    color: #fff;
+}

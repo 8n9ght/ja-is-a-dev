@@ -1,0 +1,19 @@
+.splash {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    transform: scale(5);
+    background:
+      repeating-conic-gradient(#000 0 3%, #0000 0 11%),
+      repeating-conic-gradient(#0000 0 5%, #000 0 7%) 50% / 60% 60%,
+      repeating-conic-gradient(#0000 0 7%, #000 0 9%) 50% / 70% 70%,
+      repeating-conic-gradient(#0000 0 11%, #000 0 13%) 50% / 80% 80%,
+      radial-gradient(#000 22%, #0000 0),
+      #fff;
+    background-repeat: no-repeat;
+    filter: blur(20px) contrast(50);
+    box-shadow: 0 0 0 50px #fff;
+  }

@@ -1,0 +1,81 @@
+@keyframes pulse {
+    0%{
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    35%{
+        opacity: 0.05;
+    }
+    40%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity: 0;
+        transform: scale(3);
+    }
+}
+
+
+@keyframes shrink {
+    0%{
+        transform: scale(5);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
+
+@keyframes fadeOut {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.pulse{
+    animation: pulse 2000ms linear infinite;
+}
+
+.shrink{
+    animation: shrink 2s 10s ease-in forwards;
+}
+
+.fadeOut1{
+    animation: fadeOut 1s ease-in-out forwards;
+}
+
+.fadeOut2{
+    animation: fadeOut 1s 500ms ease-in-out forwards;
+}
+
+.fadeOut3{
+    animation: fadeOut 1s 1000ms ease-in-out forwards;
+}
+
+.fadeOut4{
+    animation: fadeOut 1s 2000ms ease-in-out forwards;
+}
+
+
+.fadeIn1{
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.fadeIn2{
+    animation: fadeIn 1s 1000ms ease-in-out forwards;
+}
+
+.fadeIn3{
+    animation: fadeIn 1s 2000ms ease-in-out forwards;
+}

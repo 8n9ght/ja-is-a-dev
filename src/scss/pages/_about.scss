@@ -1,0 +1,71 @@
+.about{
+    width: 100%;
+    height: 100%;
+    padding: 5rem 2rem 2rem;
+    position: relative;
+    &__3d{
+        top: 0;
+        left: 0;
+        width: 100%;
+        position: absolute;
+    }
+    &__content{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        position: relative;
+        &__title{
+            font-size: 5rem;
+            transform: translateX(3rem);
+        }
+        &__text{
+            width: 40%;
+            height: 70%;
+            padding: 2rem;
+            font-size: 1.5rem;
+            transform: translateX(10rem);
+            align-self: center;
+            @include glassEffect;
+            position: relative;
+            z-index: 2;
+        }
+        &__floating{
+            @include glassEffect;
+            padding: 1rem;
+            width: fit-content;
+            position: absolute;
+        }
+    }
+}
+
+.floating{
+    &--1{
+        top: 5rem;
+        right: 17rem;
+        transform: rotateZ(-25deg);
+        z-index: 1;
+    }
+    &--2{
+        right:0;
+    }
+    &--3{
+        transform: rotateZ(10deg);
+        bottom: 8rem;
+        left: 10rem;
+    }
+    &--4{
+        transform: rotateZ(-10deg);
+        left: 50%;
+        bottom: 1rem;
+        z-index: 2;
+        font-size: 1.3rem;
+    }
+    &--5{
+        transform: rotateZ(25deg);
+        top: 10rem;
+        left: 33.5rem;
+        font-size: 2rem;
+        z-index: 1;
+    }
+}

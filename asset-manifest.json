@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.c0f02188.css",
+    "main.css": "/static/css/main.8ac3e121.css",
     "main.js": "/static/js/main.32f839a2.js",
     "static/media/rock_NGL.jpg": "/static/media/rock_NGL.dd70c6681961cf1a259d.jpg",
     "static/media/rock_Color.jpg": "/static/media/rock_Color.3056353a1b3d7071a6f7.jpg",
@@ -9,11 +9,11 @@
     "static/media/rock_D.jpg": "/static/media/rock_D.87ae689c32422a7f9789.jpg",
     "static/media/Galhau_Regular.ttf": "/static/media/Galhau_Regular.e5aac63d94a0a520470e.ttf",
     "index.html": "/index.html",
-    "main.c0f02188.css.map": "/static/css/main.c0f02188.css.map",
+    "main.8ac3e121.css.map": "/static/css/main.8ac3e121.css.map",
     "main.32f839a2.js.map": "/static/js/main.32f839a2.js.map"
   },
   "entrypoints": [
-    "static/css/main.c0f02188.css",
+    "static/css/main.8ac3e121.css",
     "static/js/main.32f839a2.js"
   ]
 }

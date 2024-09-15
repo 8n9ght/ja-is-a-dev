@@ -1,6 +1,6 @@
 import { Canvas, useThree } from '@react-three/fiber';
 import { Physics, RigidBody, CuboidCollider } from '@react-three/rapier';
-import { Html, Sphere, useCursor, useTexture, Text3D, Stars } from '@react-three/drei';
+import { Html, Sphere, useCursor, useTexture, Stars } from '@react-three/drei';
 import { useState, useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
@@ -119,9 +119,9 @@ const Construction = () => {
                         </Physics>
                     </EffectComposer>
                     <Stars radius={100} depth={30} count={2000} factor={4} saturation={2} fade speed={1} />
-                <Html className='html'>
-                    <p className='canvas__text'>Something great is under construction !</p>
-                </Html>
+                    <Html className='html'>
+                        <p className='canvas__text'>Something great is under construction !</p>
+                    </Html>
                 </Canvas>
             </div>
         </div>

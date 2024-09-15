@@ -11,48 +11,45 @@
   box-sizing: border-box;
 }
 
-html, body, #root, .wrapper{
+html, body, #root, .wrapper, div, .canvas, .canvas__item{
   height: 100%;
   width: 100%;
+}
+
+.canvas__item div:nth-child(2){
+  transform: none !important;
+  top: 0;
 }
 
 html{
   background: #000;
 }
 
-.wrapper{
+.canvas__item{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  position: relative;
 }
 
 .html{
-  width: 71rem;
-}
-
-.html p{
-  position: absolute;
-  right: 50%;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
 }
 
 p {
   color: #fff;
-  font-size: 3rem;
   font-family: 'galhau';
   letter-spacing: 0.5rem;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
-.canvas{
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+@media screen and (min-width: 1024px) {
 
-.canvas__item{
-  width: 100%;
+  p {
+    font-size: 3rem;
+  }
+
 }

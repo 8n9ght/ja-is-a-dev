@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.css": "/univers/static/css/main.f55ddb5c.css",
-    "main.js": "/univers/static/js/main.b74ad05c.js",
+    "main.css": "/univers/static/css/main.84be74e0.css",
+    "main.js": "/univers/static/js/main.d27f1b89.js",
+    "static/media/rock_NGL.jpg": "/univers/static/media/rock_NGL.dd70c6681961cf1a259d.jpg",
+    "static/media/rock_Color.jpg": "/univers/static/media/rock_Color.3056353a1b3d7071a6f7.jpg",
+    "static/media/rock_R.jpg": "/univers/static/media/rock_R.f6a964048199954657cf.jpg",
+    "static/media/rock_AO.jpg": "/univers/static/media/rock_AO.79a0e5280175c4a3f372.jpg",
+    "static/media/rock_D.jpg": "/univers/static/media/rock_D.87ae689c32422a7f9789.jpg",
     "static/media/Galhau_Regular.ttf": "/univers/static/media/Galhau_Regular.e5aac63d94a0a520470e.ttf",
-    "static/media/website_c.png": "/univers/static/media/website_c.6d0b92147644ae326c39.png",
     "index.html": "/univers/index.html",
-    "main.f55ddb5c.css.map": "/univers/static/css/main.f55ddb5c.css.map",
-    "main.b74ad05c.js.map": "/univers/static/js/main.b74ad05c.js.map"
+    "main.84be74e0.css.map": "/univers/static/css/main.84be74e0.css.map",
+    "main.d27f1b89.js.map": "/univers/static/js/main.d27f1b89.js.map"
   },
   "entrypoints": [
-    "static/css/main.f55ddb5c.css",
-    "static/js/main.b74ad05c.js"
+    "static/css/main.84be74e0.css",
+    "static/js/main.d27f1b89.js"
   ]
 }
